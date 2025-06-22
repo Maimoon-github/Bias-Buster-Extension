@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Bias Buster",
+  "version": "1.0",
+  "description": "Analyzes media bias in web articles using AI-powered detection.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://127.0.0.1:5000/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

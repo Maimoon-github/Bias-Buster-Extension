@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bias Buster</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 15px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+
+    .results {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .loading {
+      text-align: center;
+      font-style: italic;
+    }
+
+    .error {
+      color: #ffcccb;
+      background: rgba(255,0,0,0.2);
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .bias-score {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .confidence {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1 aria-label="Bias Buster">🔍 Bias Buster</h1>
+  <button id="analyzeBtn" aria-label="Analyze This Page">Analyze This Page</button>
+  <button id="clearBtn" aria-label="Clear Results" style="width:100%;margin-bottom:10px;">Clear Results</button>
+  <div id="results" class="results" style="display: none;">
+    <h3>Analysis Results:</h3>
+    <div id="resultContent"></div>
+    <button id="copyBtn" aria-label="Copy Results" style="margin-top:10px;width:100%;">Copy Results</button>
+  </div>
+  <div id="loading" class="loading" style="display: none;">
+    <div class="spinner" aria-label="Loading"></div>
+    <div>Analyzing content...</div>
+  </div>
+  <div id="error" class="error" style="display: none;"></div>
+  <button id="retryBtn" aria-label="Retry Analysis" style="display:none;width:100%;margin-top:10px;background:#ff9800;">Retry</button>
+  <script src="popup.js"></script>
+</body>
+</html>
